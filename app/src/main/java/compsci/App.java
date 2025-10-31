@@ -1,15 +1,16 @@
 package compsci;
 
-import java.util.Scanner;
-
-import compsci.exit_tickets.ASCIISign;
 import compsci.labs.ASCII;
+import compsci.labs.CafeWall;
+import compsci.labs.Doodle;
 import compsci.labs.Lyrics;
 
 public class App {
     public static void main(String[] args) {
-        // Lyrics.run();
+        Lyrics.run();
         ASCII.run();
-        // ExitTicket.run();
+        // thread because drawingpanel is blocking
+        new Thread(() -> CafeWall.run()).start();
+        new Thread(() -> Doodle.run()).start();
     }
 }

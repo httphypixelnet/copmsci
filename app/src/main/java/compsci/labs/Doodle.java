@@ -4,7 +4,7 @@ import compsci.drawing.DrawingPanel;
 import java.awt.*;
 
 public class Doodle {
-    public static void main(String[] args) {
+    public static void run() {
         DrawingPanel panel = new DrawingPanel(300, 300);
         Graphics g = panel.getGraphics();
         panel.setBackground(Color.WHITE);

@@ -6,7 +6,7 @@ import compsci.drawing.DrawingPanel;
 public class CafeWall {
     public static final int MORTAR = 2;
     
-    public static void main(String[] args) {
+    public static void run() {
         DrawingPanel panel = new DrawingPanel(650, 400);
         Graphics g = panel.getGraphics();
         panel.setBackground(Color.GRAY);
