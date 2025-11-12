@@ -3,8 +3,8 @@ package compsci;
 public class Utils {
     /** 
      * Left pad a string with spaces
-     * @param input
-     * @param totalLength
+     * @param input the string to pad
+     * @param totalLength the total length of the padded string
      * @return the padded string
     */
     public static String pad(String input, int totalLength) {
@@ -12,21 +12,16 @@ public class Utils {
     }
     /**
          * Left pad a string using the padding param
-         * @param input
-         * @param totalLength
-         * @param padding the 
+         * @param input the string to pad using the padding param
+         * @param totalLength the total length of the padded string
+         * @param padding the padding to use in the padded string
          * @return the padded string
          */
         public static String pad(String input, int totalLength, char padding) {
             if (input.length() >= totalLength) {
                 return input;
             }
-            StringBuilder sb = new StringBuilder();
-            sb.append(input);
-            for (int i = 0; i < totalLength - input.length(); i++) {
-                sb.append(padding);
-            }
-            return sb.toString();
+            // stop using StringBuilder and inefficient for loop
+            return input + String.valueOf(padding).repeat(totalLength - input.length());
         }
-
 }
