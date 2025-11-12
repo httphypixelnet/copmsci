@@ -26,19 +26,19 @@ public class Stars1 {
         return s.toString();
     }
     public static void main(String[] args) {
-        // // first line of 13
-        // line('*', 13);
-        // System.out.println();
-        // // second line of 7
-        // line('*', 7);
-        // System.out.println();
-        // // third line of 35
-        // line('*', 35);
-        // System.out.println();
-        // // first box, 10 by 3
-        // box('*', 10, 3);
-        // System.out.println();
-        // // second box, 5 by 4
-        // box('*', 5, 4);
+        // first line of 13
+        line('*', 13);
+        System.out.println();
+        // second line of 7
+        line('*', 7);
+        System.out.println();
+        // third line of 35
+        line('*', 35);
+        System.out.println();
+        // first box, 10 by 3
+        box('*', 10, 3);
+        System.out.println();
+        // second box, 5 by 4
+        box('*', 5, 4);
     }
 }
