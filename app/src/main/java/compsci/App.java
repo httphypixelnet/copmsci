@@ -6,9 +6,10 @@ public class App {
     public static void main(String[] args) {
 //        Lyrics.run();
 //        ASCII.run();
-//        // thread because drawingpanel is blocking
+//        // thread because DrawingPanel is blocking
 //        new Thread(CafeWall::run).start();
 //        new Thread(Doodle::run).start();
-          new GuessingGame().run();
+        new GuessingGame().run();
+        Budgeter.run();
     }
 }

@@ -7,10 +7,7 @@ import compsci.Utils;
 public class EncryptionMachine {
     public static final String k_ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 .,/'\"\\[]{}-=_+()?!<>`~@#$^&*:";
 
-    public static String prompt(String prompt, Scanner scanner) {
-        System.out.print(prompt + "\n > ");
-        return scanner.nextLine();
-    }
+
 
     public static char applyShift(char c, int shift) {
         int ind;
@@ -37,14 +34,14 @@ public class EncryptionMachine {
         return String.valueOf(newChars);
     }
 
-    public static String decrypt(int shift, char[] encryped) {
-        char[] decrypted = new char[encryped.length];
+    public static String decrypt(int shift, char[] encrypted) {
+        char[] decrypted = new char[encrypted.length];
         for (int i = 0; i < decrypted.length; i++) {
-            if (encryped[i] == ';') {
+            if (encrypted[i] == ';') {
                 decrypted[i] = ' ';
             } else {
 
-                decrypted[i] = applyShift(encryped[i], -shift);
+                decrypted[i] = applyShift(encrypted[i], -shift);
             }
         }
         return String.valueOf(decrypted);
@@ -63,16 +60,16 @@ public class EncryptionMachine {
             Scanner sc = new Scanner(System.in);
             int shift = Integer
                     .parseInt(
-                            prompt("Welcome to the encryption machine!\nPlease enter your preferred shift amount.", sc))
+                            Utils.prompt("Welcome to the encryption machine!\nPlease enter your preferred shift amount.", sc))
                     % (k_ALPHABET.length() - 1);
-            char[] old = prompt("Enter the sentence to be encrypted.", sc).toCharArray();
+            char[] old = Utils.prompt("Enter the sentence to be encrypted.", sc).toCharArray();
             String encrypted = encrypt(shift, old);
             if (encrypted.contains(";")) {
                 System.out.println(
                         "WARNING: Your input contains unsupported characters.\nThey will be replaced by a space in their decrypted form.");
             }
             System.out.printf("Encrypted string: %s%n", encrypted);
-            String dc = prompt("Would you like to decrypt the sentance back into its original form? y/N", sc);
+            String dc = Utils.prompt("Would you like to decrypt the sentence back into its original form? y/N", sc);
             if (dc.equalsIgnoreCase("y")) {
                 System.out.println(decrypt(shift, encrypted.toCharArray()));
             }
@@ -81,13 +78,13 @@ public class EncryptionMachine {
     }
 
     public static class Arguments {
+            public String toEncrypt = "";
+            public String toDecrypt = "";
+            public int shift = -1;
             /**
              * Get a typed representation of the program arguments. Also does input validation on most keys.
              * @param args the program arguments
              */
-            public String toEncrypt = "";
-            public String toDecrypt = "";
-            public int shift = -1;
             public Arguments(String[] args, String programName) {
                 Map<String, String> allowedArgs = new HashMap<String, String>();
 
@@ -109,7 +106,7 @@ public class EncryptionMachine {
                         arg = arg.replace("--", "");
                         switch (arg) {
                             case "help": {
-                                System.out.println(String.format("Usage: %s [options...]", programName));
+                                System.out.printf("Usage: %s [options...]%n", programName);
                                 try {
                                     Iterator<Map.Entry<String, String>> iterator = allowedArgs.entrySet().iterator();
                                     while (allowedArgs.entrySet().iterator().hasNext()) {
