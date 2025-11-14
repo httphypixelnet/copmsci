@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 public class MadLibs {
-    public static void main(String[] args) {
+    public static void run() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Welcome to the game of Mad Libs.");
@@ -43,6 +43,7 @@ public class MadLibs {
         File outputFile = new File(outputFileName);
 
         try {
+            assert inputFile != null;
             Scanner fileScanner = new Scanner(inputFile);
             PrintStream output = new PrintStream(outputFile);
 

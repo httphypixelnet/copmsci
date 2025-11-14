@@ -9,7 +9,8 @@ public class App {
 //        // thread because DrawingPanel is blocking
 //        new Thread(CafeWall::run).start();
 //        new Thread(Doodle::run).start();
-        new GuessingGame().run();
-        Budgeter.run();
+//        new GuessingGame().run();
+//        Budgeter.run();
+        MadLibs.run();
     }
 }
