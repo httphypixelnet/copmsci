@@ -24,7 +24,6 @@ public class Utils {
             if (input.length() >= totalLength) {
                 return input;
             }
-            // stop using StringBuilder and inefficient for loop
             return input + String.valueOf(padding).repeat(totalLength - input.length());
         }
     public static String prompt(String prompt, Scanner scanner) {
@@ -32,7 +31,7 @@ public class Utils {
     }
     public static String prompt(String prompt, Scanner scanner, char promptChar) {
         System.out.printf("%s\n %s ", prompt, promptChar);
-        String line = scanner.nextLine();
+        String line = scanner.nextLine().trim();
         return line.isEmpty() ? "0.0" : line;
     }
 

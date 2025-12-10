@@ -18,7 +18,8 @@ repositories {
 dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)
-
+    implementation("org.graalvm.polyglot:polyglot:25.0.1")
+    implementation("io.javalin:javalin:6.7.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     // This dependency is used by the application.
